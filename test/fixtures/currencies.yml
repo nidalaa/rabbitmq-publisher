@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 
+  rates: 
+  consumer_ack1: false
+  consumer_ack2: false
+  consumer_ack3: false
+
+two:
+  id: 
+  rates: 
+  consumer_ack1: false
+  consumer_ack2: false
+  consumer_ack3: false
