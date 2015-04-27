@@ -25,7 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'dotenv-rails'
 gem 'rest_client', '~> 1.8.0'
-gem 'pry', '~> 0.10.1'
+gem 'bunny', '~> 1.7.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -44,7 +44,7 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-
+  gem 'pry', '~> 0.10.1'
   gem 'rspec-rails', '~> 3.1.0'
   gem 'webmock'
 end
