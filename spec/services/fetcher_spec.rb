@@ -20,9 +20,7 @@ describe Fetcher do
     end
 
     describe "second request in last hour" do
-      let(:recent_rates) { Currency.create(rates: {example: 21}, key: SecureRandom.uuid, created_at: 10.minutes.ago) }
-
-      before { recent_rates }
+      let!(:recent_rates) { Currency.create(rates: {example: 21}, key: SecureRandom.uuid, created_at: 10.minutes.ago) }
 
       it "returns last record" do
         expect(Fetcher.fetch_currencies).to eq(recent_rates)
