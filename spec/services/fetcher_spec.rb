@@ -13,16 +13,17 @@ describe Fetcher do
 
     describe "first request in last hour" do
       it "adds new record to database" do
-        Currency.create(rates: {example: 21}, key: SecureRandom.uuid, created_at: 1.hour.ago)
+        Currency.create(rates: { example: 21 }, created_at: 1.hour.ago)
 
         expect { Fetcher.fetch_currencies }.to change { Currency.count }.by(1)
       end
     end
 
     describe "second request in last hour" do
-      let!(:recent_rates) { Currency.create(rates: {example: 21}, key: SecureRandom.uuid, created_at: 10.minutes.ago) }
+      let!(:recent_rates) { Currency.create(rates: { example: 21 }, created_at: 10.minutes.ago) }
 
       it "returns last record" do
+        Currency.create(rates: { example: 21 }, created_at: 15.minutes.ago)
         expect(Fetcher.fetch_currencies).to eq(recent_rates)
       end
 

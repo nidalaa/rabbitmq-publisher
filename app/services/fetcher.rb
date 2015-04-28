@@ -4,7 +4,7 @@ class Fetcher
 
   class << self
     def fetch_currencies
-      last_rates = Currency.last
+      last_rates = Currency.order(:created_at).last
 
       last_rates && last_rates.created_at > 1.hour.ago ? last_rates : Currency.create(rates: new_rates)
     end
