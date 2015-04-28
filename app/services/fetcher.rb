@@ -4,9 +4,9 @@ class Fetcher
 
   class << self
     def fetch_currencies
-      return Currency.last if Currency.last && Currency.last.created_at > 1.hour.ago
+      last_rates = Currency.last
 
-      Currency.create(rates: new_rates, key: SecureRandom.uuid)
+      last_rates && last_rates.created_at > 1.hour.ago ? last_rates : Currency.create(rates: new_rates)
     end
 
     private
